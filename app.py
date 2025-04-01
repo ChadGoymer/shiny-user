@@ -10,7 +10,12 @@ app_ui = ui.page_fixed(
 def server(input, output, session):
     @render.text()
     def user():
-        user = os.getlogin() if session.user is None else session.user
+        try:
+            user = os.getlogin()
+        except OSError:
+            user = None
+
+        user = user if session.user is None else session.user
         return f"Current user: {user}"
 
 
