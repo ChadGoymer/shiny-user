@@ -7,3 +7,8 @@ requires-python = ">=3.12"
 dependencies = [
     "shiny>=1.3.0",
 ]
+
+[dependency-groups]
+dev = [
+    "rsconnect-python>=1.25.2",
+]
